@@ -32,22 +32,25 @@ class ProductMapping extends Component {
 
   constructor(props) {
       super(props);
-      this.state = {value: '', shopifyProducts: '', tracedata: {}};
+      this.state = {value: '', shopifyProducts: '' , tracedata: {}};
       this.productMappingService = new ProductMappingService();
     }
     componentDidMount(){
-      axios.get('https://cc37a427.ngrok.io/pluginAdmin/getProducts')
+      axios.get('https://ab7d7823.ngrok.io/pluginAdmin/getProducts')
       .then(response => {
-        this.setState({ shopifyProducts: response.data });
+        console.log(response);
+        this.setState(function()
+        { shopifyProducts: response.data });
       })
       .catch(function (error) {
         console.log(error);
       })
 
-      axios.get('https://cc37a427.ngrok.io/pluginAdmin/getTraceData')
+      axios.get('https://ab7d7823.ngrok.io/pluginAdmin/getTraceData')
         .then(response_ => {
-          console.log(response_.data);
-          this.setState({ tracedata: response_.data });
+          console.log(response_);
+          this.setState(function()
+          { tracedata: response_.data });
         })
         .catch(function (error) {
           console.log(error);

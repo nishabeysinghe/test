@@ -1,5 +1,5 @@
 import axios from 'axios';
-const serverAddress = 'https://cc37a427.ngrok.io';
+const serverAddress = 'https://ab7d7823.ngrok.io';
 
 class ProductMappingService{
     //send mapping data
