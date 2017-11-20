@@ -34,10 +34,14 @@ class ProductMappingTableRow extends Component {
         event.preventDefault();
         this.productMappingService.deleteData(this.props.obj.id);
     }
+   
+  
+
+
   render() {
     return (
         <tr>
-          <td >
+          <td>
           <Badge>
                      <Select
                         options={[ this.props.obj.title
@@ -55,8 +59,9 @@ class ProductMappingTableRow extends Component {
           {this.props.obj.id}
           </td>
           <td>
-          {this.props.tracelist}
-          </td>
+           
+           </td>
+              
           <td>
            <Checkbox label="Traceability Enabled " />
           </td>

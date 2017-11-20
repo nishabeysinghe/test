@@ -15,7 +15,7 @@ class EditItem extends Component {
   }
 
   componentDidMount(){
-    axios.get('https://ab7d7823.ngrok.io/items/edit/'+this.props.match.params.id)
+    axios.get('https://fe5b1685.ngrok.io/items/edit/'+this.props.match.params.id)
     .then(response => {
       this.setState({ value: response.data});
     })

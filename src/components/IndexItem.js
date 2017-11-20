@@ -13,7 +13,7 @@ class IndexItem extends Component {
       this.addItemService = new ItemService();
     }
     componentDidMount(){
-      axios.get('https://ab7d7823.ngrok.io/items')
+      axios.get('https://fe5b1685.ngrok.io/items')
       .then(response => {
         this.setState({ items: response.data });
       })
@@ -22,17 +22,20 @@ class IndexItem extends Component {
       })
     }
     tabRow(){
+
+      //const trace = this.state.tracedata;
+
       if(this.state.items instanceof Array){
         return this.state.items.map(function(object, i){
             return <TableRow obj={object} key={i} />;
         })
       }
 
-      if(this.state.items instanceof Array){
-        return this.state.items.map(function(traceobject, i){
-            return <TableRow traceobj={traceobject} key={i} />;
-        })
-      }
+      // if(this.state.items instanceof Array){
+      //   return this.state.items.map(function(traceobject, i){
+      //       return <TableRow traceobj={traceobject} key={i} />;
+      //   })
+      // }
      
      
 

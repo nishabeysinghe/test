@@ -32,25 +32,32 @@ class ProductMapping extends Component {
 
   constructor(props) {
       super(props);
-      this.state = {value: '', shopifyProducts: '' , tracedata: {}};
+      this.state = {value: '', shopifyProducts:'' , tracedata: ''};
       this.productMappingService = new ProductMappingService();
     }
     componentDidMount(){
-      axios.get('https://ab7d7823.ngrok.io/pluginAdmin/getProducts')
+     
+      axios.get('https://fe5b1685.ngrok.io/pluginAdmin/getProducts')
       .then(response => {
-        console.log(response);
-        this.setState(function()
-        { shopifyProducts: response.data });
+        console.log('testngaxio');
+        console.log(typeof response.data);
+        console.log(typeof shopifyProducts);
+        this.setState({ shopifyProducts: response.data });
+         
       })
       .catch(function (error) {
         console.log(error);
-      })
+      }); 
 
-      axios.get('https://ab7d7823.ngrok.io/pluginAdmin/getTraceData')
+      
+      
+      axios.get('https://fe5b1685.ngrok.io/pluginAdmin/getTraceData')
         .then(response_ => {
           console.log(response_);
-          this.setState(function()
-          { tracedata: response_.data });
+          this.setState({ tracedata: response_.data });
+          
+          console.log('tracedatacheck');
+          console.log(typeof response_.data);
         })
         .catch(function (error) {
           console.log(error);
@@ -69,11 +76,13 @@ class ProductMapping extends Component {
     // }
     tabRow(){
       const trace = this.state.tracedata;
-
+      console.log('checkkk');
+      console.log(this.state.tracedata);
+      console.log(this.state.shopifyProducts);
       if(this.state.shopifyProducts instanceof Array){
         return this.state.shopifyProducts.map(function(object, i){
             return <ProductMappingTableRow obj={object} key={i} tracelist={trace} />;
-        })
+        })  
       }
       
     }
@@ -103,7 +112,9 @@ class ProductMapping extends Component {
                 </tr>
               </thead>
               <tbody>
+
                 {this.tabRow()}
+
               </tbody>
             </table>
         </Card>
