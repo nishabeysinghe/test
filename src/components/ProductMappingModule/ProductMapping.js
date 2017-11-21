@@ -37,7 +37,7 @@ class ProductMapping extends Component {
     }
     componentDidMount(){
      
-      axios.get('https://fe5b1685.ngrok.io/pluginAdmin/getProducts')
+      axios.get('https://085da154.ngrok.io/pluginAdmin/getProducts')
       .then(response => {
         console.log('testngaxio');
         console.log(typeof response.data);
@@ -51,7 +51,7 @@ class ProductMapping extends Component {
 
       
       
-      axios.get('https://fe5b1685.ngrok.io/pluginAdmin/getTraceData')
+      axios.get('https://085da154.ngrok.io/pluginAdmin/getTraceData')
         .then(response_ => {
           console.log(response_);
           this.setState({ tracedata: response_.data });

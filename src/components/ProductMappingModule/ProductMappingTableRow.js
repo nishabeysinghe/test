@@ -18,7 +18,9 @@ import {
   Heading,
   PageActions,
   Select,
-  Checkbox
+  Checkbox,
+  ResourceList,
+
 } from '@shopify/polaris';
 import '@shopify/polaris/styles.css';
 
@@ -33,6 +35,8 @@ class ProductMappingTableRow extends Component {
     handleSubmit(event){
         event.preventDefault();
         this.productMappingService.deleteData(this.props.obj.id);
+       // console.log(this.props.tracedata);
+        
     }
    
   
@@ -59,7 +63,18 @@ class ProductMappingTableRow extends Component {
           {this.props.obj.id}
           </td>
           <td>
-           
+            {/* <ResourceList
+                        items={tracelist}
+                        renderItem={
+                          (item,index) =>
+                          {
+                            return <ResourceList.Item
+                            key={index} {...item}
+                            />;
+                          }
+                        }
+               
+            />  */}
            </td>
               
           <td>
