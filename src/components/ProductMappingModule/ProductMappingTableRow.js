@@ -20,6 +20,7 @@ import {
   Select,
   Checkbox,
   ResourceList,
+   
 
 } from '@shopify/polaris';
 import '@shopify/polaris/styles.css';
@@ -27,6 +28,9 @@ import '@shopify/polaris/styles.css';
 class ProductMappingTableRow extends Component {
     constructor(props){
         super(props);
+        
+        console.log(this.props.tracelist[1].id);
+        console.log(this.props.tracelist.length)
 
         this.productMappingService = new ProductMappingService();
         this.handleSubmit=this.handleSubmit.bind(this);
@@ -39,11 +43,17 @@ class ProductMappingTableRow extends Component {
         
     }
    
-  
+    
+    
+
 
 
   render() {
     return (
+
+
+
+      
         <tr>
           <td>
           <Badge>
@@ -62,20 +72,12 @@ class ProductMappingTableRow extends Component {
           <td>
           {this.props.obj.id}
           </td>
-          <td>
-            {/* <ResourceList
-                        items={tracelist}
-                        renderItem={
-                          (item,index) =>
-                          {
-                            return <ResourceList.Item
-                            key={index} {...item}
-                            />;
-                          }
-                        }
-               
-            />  */}
-           </td>
+         
+          
+               <td>
+                      
+              </td>
+            
               
           <td>
            <Checkbox label="Traceability Enabled " />
@@ -87,6 +89,7 @@ class ProductMappingTableRow extends Component {
           </td>
         </tr>
     );
+    
   }
 }
 

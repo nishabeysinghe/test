@@ -32,7 +32,7 @@ class ProductMapping extends Component {
 
   constructor(props) {
       super(props);
-      this.state = {value: '', shopifyProducts:'' , tracedata: ''};
+      this.state = {value: '', shopifyProducts:'' , tracedata: [] };
       this.productMappingService = new ProductMappingService();
     }
     componentDidMount(){
@@ -74,15 +74,21 @@ class ProductMapping extends Component {
     //     console.log(error);
     //   })
     // }
+
+   
+
     tabRow(){
       const trace = this.state.tracedata;
       console.log('checkkk');
       console.log(this.state.tracedata);
+      console.log(trace);
       console.log(this.state.shopifyProducts);
       if(this.state.shopifyProducts instanceof Array){
         return this.state.shopifyProducts.map(function(object, i){
             return <ProductMappingTableRow obj={object} key={i} tracelist={trace} />;
-        })  
+            
+        }) 
+       
       }
       
     }
