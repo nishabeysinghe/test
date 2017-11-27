@@ -29,8 +29,11 @@ class ProductMappingTableRow extends Component {
     constructor(props){
         super(props);
         
-        this.props.tracelist.forEach(v=>console.log(v.id));
-        console.log(this.props.tracelist[1].id);
+//        this.props.tracelist.forEach(v=>console.log(v.Apple.crop.name));
+        console.log(this.props.tracelist[10]);
+        let testlist = this.props.tracelist;
+        let arraytestlist = testlist.split(" ");
+        console.log(arraytestlist);
         console.log(this.props.tracelist.length)
 
         this.productMappingService = new ProductMappingService();
@@ -56,6 +59,10 @@ class ProductMappingTableRow extends Component {
 
 
 render() {
+
+  let testlist = this.props.tracelist;
+  let arraytestlist = testlist.split(" ");
+  console.log(arraytestlist);
   
     let options = [<option  disabled selected>Select Trace ID</option>];
     console.log('table');
@@ -63,24 +70,13 @@ render() {
    
     let traceList = this.props.tracelist;
    
-    for (let i = 0; i <traceList.length; i++) {
-      options.push(<option key={traceList[i].id} value={traceList[i].title}>{traceList[i].id}</option>);
+    for (let i = 0; i <arraytestlist.length; i=i+4) {
+      options.push(<option key={arraytestlist[i].id} value={arraytestlist[i].title}>{arraytestlist[i]}</option>);
     }
 
     return (
         <tr>
-          <td>
-          <Badge>
-                     <Select
-                        options={[ 
-                          this.props.obj.title
-                                    
-                        ]}
-                         placeholder="Traceability Product IDs"
-                      />
-                      </Badge>
-
-          </td>
+         
           <td>
             {this.props.obj.title}
           </td>
@@ -94,10 +90,12 @@ render() {
                  
                   
                   <td>  
+                   <Badge>
                   <select>
                     {options}
                   </select>
-                       
+                  </Badge>
+
                   </td>
                  
                  
