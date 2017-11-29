@@ -75,6 +75,7 @@ render() {
     }
 
     return (
+      
         <tr>
          
           <td>
@@ -106,12 +107,29 @@ render() {
           <td>
            <Checkbox label="Traceability Enabled " />
           </td>
-          <td>
-          <form onSubmit={this.handleSubmit}>
-             
-            </form>
-          </td>
+
+         
+      
+         
+       
+          
+
+          
+      
+        <form onSubmit={this.handleSubmit}>
+        
+           <PageActions
+            primaryAction={{content: 'Save'}}
+           />
+         
+        </form>
+
+         
+
         </tr>
+
+
+           
     );
     
   }
